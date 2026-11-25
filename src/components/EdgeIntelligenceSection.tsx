@@ -127,21 +127,21 @@ export function EdgeIntelligenceSection() {
           style={{ boxShadow: 'var(--anv-shadow-ambient)' }}
         >
           {/* Top Continuous Circuit-Vein Trace Header */}
-          <div className="relative hidden items-center border-b border-[#D4E1D1] bg-[#EDF3EB]/50 px-8 py-4 md:grid md:grid-cols-4">
+          <div className="relative hidden border-b border-[#D4E1D1] bg-[#EDF3EB]/50 md:grid md:grid-cols-4">
             <div
               aria-hidden="true"
-              className="pointer-events-none absolute top-1/2 right-10 left-10 h-px -translate-y-1/2 bg-[#D4E1D1]"
+              className="pointer-events-none absolute top-1/2 right-7 left-7 h-px -translate-y-1/2 bg-[#D4E1D1]"
             />
             {PIPELINE_STAGES.map((stage) => (
-              <div key={stage.step} className="relative z-10 flex items-center gap-2.5">
+              <div key={stage.step} className="relative z-10 flex items-center gap-2 px-6 py-4 sm:px-7">
                 <span className="inline-flex h-6 w-6 items-center justify-center rounded-sm border border-[#047A48] bg-[#FFFFFF] font-mono text-[11px] font-medium tabular-nums text-[#047A48]">
                   {stage.step}
                 </span>
                 <span
-                  className="h-[7px] w-[7px] rounded-full border-[1.5px] border-[#047A48] bg-[#4CC13B]"
+                  className="h-[7px] w-[7px] shrink-0 rounded-full border-[1.5px] border-[#047A48] bg-[#4CC13B]"
                   aria-hidden="true"
                 />
-                <span className="bg-[#EDF3EB] pr-2 font-mono text-[10px] font-medium tracking-[0.12em] uppercase text-[#047A48]">
+                <span className="bg-[#EDF3EB] px-1.5 font-mono text-[10px] font-medium tracking-[0.11em] uppercase text-[#047A48]">
                   {stage.tag}
                 </span>
               </div>

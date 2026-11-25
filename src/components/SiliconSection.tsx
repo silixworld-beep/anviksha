@@ -736,17 +736,19 @@ export function SiliconSection() {
                 {activeSpec.summary}
               </p>
 
-              {/* Key Architecture Specs Grid */}
-              <dl className="mt-6 grid grid-cols-2 gap-3 border-t border-[#D4E1D1] pt-5">
-                {activeSpec.keyMetrics.map((metric) => (
+              {/* Key Architecture Specs Matrix */}
+              <dl className="mt-6 grid grid-cols-2 overflow-hidden rounded-sm border border-[#D4E1D1]">
+                {activeSpec.keyMetrics.map((metric, idx) => (
                   <div
                     key={metric.label}
-                    className="rounded-sm border border-[#D9E4D7] bg-[#F7F9F5] px-3.5 py-2.5"
+                    className={`bg-[#F7F9F5]/70 px-3.5 py-3 ${
+                      idx % 2 === 0 ? 'border-r border-[#D4E1D1]' : ''
+                    } ${idx < 2 ? 'border-b border-[#D4E1D1]' : ''}`}
                   >
                     <dt className="font-mono text-[10px] tracking-[0.08em] uppercase text-[#47584E]">
                       {metric.label}
                     </dt>
-                    <dd className="mt-1 font-mono text-xs font-medium text-[#132219] sm:text-[13px]">
+                    <dd className="mt-1 font-mono text-xs font-medium tabular-nums text-[#132219] sm:text-[13px]">
                       {metric.value}
                     </dd>
                   </div>

@@ -70,21 +70,21 @@ export function HeroSection() {
 
             {/* Compact Horizontal Metric Strip with Hairline Dividers */}
             <div className="mt-12 border-t border-b border-[#D4E1D1] py-4">
-              <dl className="grid grid-cols-2 gap-y-4 sm:flex sm:flex-wrap sm:items-center sm:gap-y-2">
+              <dl className="grid grid-cols-2 gap-x-6 gap-y-4 lg:flex lg:flex-nowrap lg:items-center lg:gap-0">
                 {HERO_METRICS.map((metric, idx) => (
                   <div
                     key={metric.label}
-                    className={`flex items-baseline gap-2 ${
+                    className={`flex flex-col gap-0.5 lg:flex-row lg:items-baseline lg:gap-1.5 lg:whitespace-nowrap ${
                       idx > 0
-                        ? 'sm:border-l sm:border-[#D4E1D1] sm:pl-5'
+                        ? 'lg:border-l lg:border-[#D4E1D1] lg:pl-4'
                         : ''
-                    } ${idx < HERO_METRICS.length - 1 ? 'sm:pr-5' : ''}`}
+                    } ${idx < HERO_METRICS.length - 1 ? 'lg:pr-4' : ''}`}
                   >
                     <dt className="sr-only">{metric.label}</dt>
-                    <dd className="font-mono text-sm font-medium tabular-nums text-[#132219]">
+                    <dd className="font-mono text-[13px] font-medium tabular-nums whitespace-nowrap text-[#132219]">
                       {metric.value}
                     </dd>
-                    <span className="font-mono text-[11px] text-[#47584E]">
+                    <span className="font-mono text-[10.5px] leading-snug text-[#47584E]">
                       {metric.label}
                     </span>
                   </div>
