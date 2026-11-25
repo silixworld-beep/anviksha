@@ -1,0 +1,125 @@
+@import "tailwindcss";
+
+@theme {
+  --color-canvas: #f7f9f5;
+  --color-surface: #ffffff;
+  --color-surface-inset: #edf3eb;
+  --color-border-subtle: #d9e4d7;
+  --color-grid-rule: #d4e1d1;
+
+  --color-brand-primary: #047a48;
+  --color-brand-accent: #4cc13b;
+  --color-ink-primary: #132219;
+  --color-ink-secondary: #47584e;
+  --color-ink-charcoal: #3a3d3b;
+
+  --font-display: "Fraunces", Georgia, serif;
+  --font-sans: "DM Sans", system-ui, -apple-system, sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, SFMono-Regular, monospace;
+
+  --shadow-ambient: 0 2px 6px rgba(4, 57, 34, 0.05), 0 12px 28px -8px rgba(4, 122, 72, 0.11);
+  --shadow-hardware: 0 4px 12px rgba(4, 57, 34, 0.06), 0 24px 48px -16px rgba(4, 72, 42, 0.16);
+}
+
+:root {
+  --anv-canvas: #f7f9f5;
+  --anv-surface: #ffffff;
+  --anv-surface-inset: #edf3eb;
+  --anv-border-subtle: #d9e4d7;
+  --anv-grid-rule: #d4e1d1;
+
+  --anv-green-deep: #047a48;
+  --anv-green-living: #4cc13b;
+  --anv-ink-forest: #132219;
+  --anv-ink-slate: #47584e;
+  --anv-ink-charcoal: #3a3d3b;
+
+  --anv-shadow-ambient: 0 2px 6px rgba(4, 57, 34, 0.05), 0 12px 28px -8px rgba(4, 122, 72, 0.11);
+  --anv-shadow-hardware: 0 4px 12px rgba(4, 57, 34, 0.06), 0 24px 48px -16px rgba(4, 72, 42, 0.16);
+  --anv-gobo-shadow: rgba(4, 57, 34, 0.065);
+
+  --anv-ease-damped: cubic-bezier(0.22, 1, 0.36, 1);
+
+  color-scheme: light;
+}
+
+@layer base {
+  html {
+    background-color: var(--anv-canvas);
+    color: var(--anv-ink-forest);
+    font-family: var(--font-sans);
+    line-height: 1.6;
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    margin: 0;
+    background-color: var(--anv-canvas);
+    color: var(--anv-ink-forest);
+    overflow-x: hidden;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-family: var(--font-display);
+    font-optical-sizing: auto;
+    letter-spacing: -0.025em;
+    color: var(--anv-ink-forest);
+  }
+
+  section[id],
+  footer[id] {
+    scroll-margin-top: 4.25rem;
+  }
+}
+
+.font-mono {
+  font-variant-numeric: tabular-nums;
+}
+
+/* Sunlit-breeze canopy gobo drift: slow, physical, damped */
+@keyframes botanical-breeze-primary {
+  0%,
+  100% {
+    transform: translate3d(0px, 0px, 0) rotate(0deg) scale(1);
+  }
+  50% {
+    transform: translate3d(14px, -10px, 0) rotate(1.1deg) scale(1.015);
+  }
+}
+
+@keyframes botanical-breeze-secondary {
+  0%,
+  100% {
+    transform: translate3d(0px, 0px, 0) rotate(0deg);
+  }
+  50% {
+    transform: translate3d(-12px, 8px, 0) rotate(-0.9deg);
+  }
+}
+
+.botanical-drift-primary {
+  animation: botanical-breeze-primary 24s var(--anv-ease-damped) infinite;
+  will-change: transform;
+}
+
+.botanical-drift-secondary {
+  animation: botanical-breeze-secondary 31s var(--anv-ease-damped) infinite;
+  will-change: transform;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .botanical-drift-primary,
+  .botanical-drift-secondary {
+    animation: none;
+    will-change: auto;
+  }
+}
